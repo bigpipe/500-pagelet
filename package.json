@@ -10,6 +10,17 @@
     "type": "git",
     "url": "https://github.com/bigpipe/500-pagelet.git"
   },
+  "dependencies": {
+    "pagelet": "0.8.x"
+  },
+  "devDependencies": {
+    "illuminati": "0.0.x",
+    "assume": "0.0.x",
+    "coveralls": "2.11.x",
+    "istanbul": "0.3.x",
+    "mocha": "2.0.x",
+    "mocha-lcov-reporter": "0.0.x"
+  },
   "keywords": [
     "BigPipe",
     "Pagelet",
