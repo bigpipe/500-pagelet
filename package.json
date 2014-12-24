@@ -11,7 +11,8 @@
     "url": "https://github.com/bigpipe/500-pagelet.git"
   },
   "dependencies": {
-    "pagelet": "0.8.x"
+    "pagelet": "0.8.x",
+    "diagnostics-pagelet": "1.0.x"
   },
   "devDependencies": {
     "illuminati": "0.0.x",
