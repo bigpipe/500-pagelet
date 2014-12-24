@@ -1,0 +1,26 @@
+{
+  "name": "500-pagelet",
+  "version": "1.0.0",
+  "description": "Default 500 Pagelet used if anything fails in BigPipe",
+  "main": "index.js",
+  "scripts": {
+    "test": "illuminati"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bigpipe/500-pagelet.git"
+  },
+  "keywords": [
+    "BigPipe",
+    "Pagelet",
+    "500",
+    "default",
+    "error"
+  ],
+  "author": "Martijn Swaagman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bigpipe/500-pagelet/issues"
+  },
+  "homepage": "https://github.com/bigpipe/500-pagelet"
+}
