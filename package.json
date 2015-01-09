@@ -4,7 +4,10 @@
   "description": "Default 500 Pagelet used if anything fails in BigPipe",
   "main": "index.js",
   "scripts": {
-    "test": "illuminati"
+    "test": "mocha $(find test -name '*.test.js')",
+    "watch": "mocha --watch $(find test -name '*.test.js')",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha -- $(find test -name '*.test.js')",
+    "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- $(find test -name '*.test.js')"
   },
   "repository": {
     "type": "git",
@@ -15,12 +18,12 @@
     "diagnostics-pagelet": "1.0.x"
   },
   "devDependencies": {
-    "illuminati": "0.0.x",
     "assume": "0.0.x",
-    "coveralls": "2.11.x",
     "istanbul": "0.3.x",
-    "mocha": "2.0.x",
-    "mocha-lcov-reporter": "0.0.x"
+    "mocha": "2.1.x",
+    "pre-commit": "0.0.x",
+    "routable": "0.0.x",
+    "temper": "0.2.x"
   },
   "keywords": [
     "BigPipe",

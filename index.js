@@ -1,9 +1,12 @@
 'use strict';
 
+var Pagelet = require('pagelet');
+
 //
 // Default 500 error pagelet that will be served if none is provided.
 //
-require('pagelet').extend({
+Pagelet.extend({
+  name: '500',
   path: '/500',
   statusCode: 500,
   view: '500.html',
@@ -13,17 +16,28 @@ require('pagelet').extend({
   },
 
   /**
+   * Extend the default constructor to allow second data parameter.
+   *
+   * @param {Object} options Optional options.
+   * @param {Error} error Error data and stack.
+   * @api public
+   */
+  constructor: function constructor(options, error) {
+    Pagelet.prototype.constructor.call(this, options);
+
+    this.error = error instanceof Error ? error : {};
+  },
+
+  /**
    * Return available data depending on environment settings.
    *
    * @param {Function} render Completion callback.
    * @api private
    */
   get: function get(render) {
-    var self = this;
-
     render(null, {
-      message: this.data.message,
-      stack: self.env && self.env !== 'production' ? this.data.stack : ''
+      message: this.error.message,
+      stack: this.env !== 'production' ? this.error.stack : ''
     });
   }
 }).on(module);
