@@ -1,6 +1,6 @@
 {
   "name": "500-pagelet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Default 500 Pagelet used if anything fails in BigPipe",
   "main": "index.js",
   "scripts": {
