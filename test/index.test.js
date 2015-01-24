@@ -59,16 +59,22 @@ describe('500 Pagelet', function () {
   describe('#constructor', function () {
     it('is a function', function () {
       assume(Fivehundred).is.a('function');
-      assume(Fivehundred.length).to.equal(2);
+      assume(Fivehundred.length).to.equal(3);
     });
 
     it('can be provided with an optional Error', function () {
       pagelet = new Fivehundred({ temper: new Temper }, new Error('failed test'));
 
-      assume(pagelet.error).to.be.instanceof(Error);
-      assume(pagelet.error).to.have.property('message', 'failed test');
-      assume(pagelet.error).to.have.property('stack');
-      assume(pagelet.error.stack).to.be.an('string');
+      assume(pagelet.data).to.be.instanceof(Error);
+      assume(pagelet.data).to.have.property('message', 'failed test');
+      assume(pagelet.data).to.have.property('stack');
+      assume(pagelet.data.stack).to.be.an('string');
+    });
+
+    it('can be provided with the name of the Pagelet it replaces', function () {
+      pagelet = new Fivehundred({ temper: new Temper }, new Error('failed test'), 'search');
+
+      assume(pagelet.name).to.equal('search');
     });
   });
 
@@ -81,7 +87,7 @@ describe('500 Pagelet', function () {
     it('returns error data for template rendering', function (done) {
       var err = { message: 'I\'m working', stack: 'will be returned' };
 
-      pagelet.error = err;
+      pagelet.data = err;
       pagelet.get(function (error, data) {
         assume(error).to.equal(null);
         assume(data.message).to.equal(err.message);
@@ -93,10 +99,11 @@ describe('500 Pagelet', function () {
     it('does not return the full error stack if the enviroment is production', function (done) {
       var err = { message: 'I\'m working', stack: 'will be returned' };
 
-      pagelet.error = err;
+      pagelet.data = err;
       pagelet.env = 'production';
       pagelet.get(function (error, data) {
         assume(error).to.equal(null);
+        assume(data.env).to.equal(pagelet.env);
         assume(data.message).to.equal(err.message);
         assume(data.stack).to.not.equal(err.stack);
         done();

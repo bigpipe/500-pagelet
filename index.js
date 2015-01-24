@@ -20,12 +20,14 @@ Pagelet.extend({
    *
    * @param {Object} options Optional options.
    * @param {Error} error Error data and stack.
+   * @param {String} name Pagelet name that the Error pagelet replaces.
    * @api public
    */
-  constructor: function constructor(options, error) {
+  constructor: function constructor(options, error, name) {
     Pagelet.prototype.constructor.call(this, options);
 
-    this.error = error instanceof Error ? error : {};
+    if (name) this.name = name;
+    this.data = error instanceof Error ? error : {};
   },
 
   /**
@@ -36,8 +38,9 @@ Pagelet.extend({
    */
   get: function get(render) {
     render(null, {
-      message: this.error.message,
-      stack: this.env !== 'production' ? this.error.stack : ''
+      env: this.env,
+      message: this.data.message,
+      stack: this.env !== 'production' ? this.data.stack : ''
     });
   }
 }).on(module);
