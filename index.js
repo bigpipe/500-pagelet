@@ -10,7 +10,6 @@ Pagelet.extend({
   path: '/500',
   statusCode: 500,
   view: '500.html',
-  env: process.env.NODE_ENV,
   pagelets: {
     diagnostics: require('diagnostics-pagelet')
   },

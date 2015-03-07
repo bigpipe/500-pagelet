@@ -26,7 +26,7 @@ describe('500 Pagelet', function () {
     assume(pagelet.name).to.equal('500');
     assume(pagelet.statusCode).to.equal(500);
     assume(pagelet.view).to.equal(process.cwd() + '/500.html');
-    assume(pagelet.env).to.equal(process.env.NODE_ENV);
+    assume(pagelet.env).to.equal(process.env.NODE_ENV || 'development');
   });
 
   it('has diagnostics child pagelet', function (done) {
