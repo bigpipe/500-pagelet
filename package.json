@@ -1,6 +1,6 @@
 {
   "name": "500-pagelet",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Default 500 Pagelet used if anything fails in BigPipe",
   "main": "index.js",
   "scripts": {
@@ -14,16 +14,16 @@
     "url": "https://github.com/bigpipe/500-pagelet.git"
   },
   "dependencies": {
-    "pagelet": "1.0.0-alpha",
+    "pagelet": "1.0.0-alpha-3",
     "diagnostics-pagelet": "1.0.x"
   },
   "devDependencies": {
-    "assume": "0.0.x",
+    "assume": "1.2.x",
     "istanbul": "0.3.x",
-    "mocha": "2.1.x",
-    "pre-commit": "0.0.x",
+    "mocha": "2.2.x",
+    "pre-commit": "1.0.x",
     "routable": "0.0.x",
-    "temper": "0.2.x"
+    "temper": "0.3.x"
   },
   "keywords": [
     "BigPipe",
