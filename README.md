@@ -8,7 +8,7 @@
 [cover]: http://img.shields.io/coveralls/bigpipe/500-pagelet/master.svg?style=flat-square
 
 This Pagelet is responsible for displaying server errors. By
-default the 500 Pagelet is provided with [BigPipe]. However, if you
+default the 500 Pagelet is provided with BigPipe. However, if you
 need a custom 500 you can extend this Pagelet. For example to change
 the default view.
 
@@ -22,21 +22,15 @@ npm install --save 500-pagelet
 
 ## Support
 
-Got stuck? Or can't wrap your head around a concept or just want some feedback,
-we got a dedicated IRC channel for that on Freenode:
-
-- **IRC Server**: `irc.freenode.net`
-- **IRC Room**: `#bigpipe`
-
-Still stuck? Create an issue. Every question you have is a bug in our
+Create an issue. Every question you have is a bug in our
 documentation and that should be corrected. So please, don't hesitate to create
 issues, many of them.
 
 ### Example
 
 In this example the 500 Pagelet is extended with a custom view.
-[BigPipe] will automatically discover this extended version
-if it is provided to [BigPipe] alongside the other pagelets.
+BigPipe will automatically discover this extended version
+if it is provided to BigPipe alongside the other pagelets.
 Note that the enviroment variable can be overruled to manage the
 data that is displayed.
 
@@ -122,7 +116,6 @@ npm run coverage
 
 500-pagelet is released under MIT.
 
-[BigPipe]: http://bigpipe.io/
 [Travis CI]: http://travisci.org
 [Temper]: http://github.com/bigpipe/temper
 [pre-commit]: http://github.com/observing/pre-commit
